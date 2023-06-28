@@ -3,6 +3,7 @@
 #include <vector>
 #include <stdexcept>
 // vectors are basically what arrayList in Java but better 
+
 // basically print() in Python
 string echo(string x){
   std::cout << x; 
