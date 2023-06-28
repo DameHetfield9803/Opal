@@ -2,7 +2,32 @@
 #include <vector>
 #include <iostream>
 
-void fn(){
+// logic stuff
+
+void for(){
   
 }
 
+void while() {
+  
+}
+
+void do(){
+  
+}
+
+void if(){
+  
+}
+
+void else if(){
+  
+}
+
+void else(){
+  
+}
+
+void fn(const char* function_name){
+  
+}
