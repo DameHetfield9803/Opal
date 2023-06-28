@@ -3,6 +3,7 @@
 #include <vector>
 #include <stdexcept>
 // vectors are basically what arrayList in Java but better 
+// stdexcept is similar to Java's exception handler
 // NULL values
 void null(){
   return NULL;
