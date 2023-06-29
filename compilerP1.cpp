@@ -41,12 +41,12 @@ bool echo(bool d){
 
   // Math operations 
   // Addition
-double add(const std::vector<double>& operands){
-   double result = 0.0;
-    for (double operand : operands) {
-        result += operand;
-    }
-    return result;
+double add(const std::vector<double>& operands) {
+  double result = 0.0;
+  for (double operand : operands) {
+    result += operand;
+  }
+  return result;
 }
 int add(const std::vector<int>& operands){
    int result = 0;
@@ -62,7 +62,13 @@ float add(const std::vector<float>& operands){
   }
   return result;
 }
-
+long add(const std::vector<long>& operands){
+   long result = 0.0;
+  for (long operand : operands){
+    result += operand;
+  }
+  return result;
+}
 // Multiplication
 double multiply(const std::vector<double>& operands){
    double result = 0.0;
