@@ -5,7 +5,7 @@
 // vectors are basically what arrayList in Java but better 
 // stdexcept is similar to Java's exception handler
 // NULL values
-void null(){
+int null(){
   return NULL;
 }
 // basically print() in Python
