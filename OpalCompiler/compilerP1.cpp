@@ -29,21 +29,26 @@ std::string echo(const std::string& x) {
 
 int echo(int i){
   std::cout << i; 
+  return i;
 }
 int echo(char j){
   std::cout << j;
+  return j;
 }
 
 double echo(double a){
   std::cout << a;
+  return a;
 }
 
 float echo(float b){
   std::cout << b;
+  return b;
 }
 
 long echo(long c){
   std::cout << c;
+  return c;
 }
 
 bool echo(bool d){
@@ -53,7 +58,8 @@ bool echo(bool d){
   else{
     std::cout << false;
   }
-
+  return d;
+}
   // Math operations 
   // Addition
 double add(const std::vector<double>& operands) {
