@@ -14,6 +14,7 @@ int null(){
 // }
 
 // Added exception handling - Kevin
+// Empty string isn't allowed
 std::string echo(const std::string& x) {
   if (x.empty()) {
     throw std::invalid_argument("Error: empty string isn't allowed");
