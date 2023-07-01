@@ -9,9 +9,22 @@ int null(){
   return NULL;
 }
 // basically print() in Python
-string echo(string x){
-  std::cout << x; 
+// string echo(string x){
+//   std::cout << x; 
+// }
+
+std::string echo(const std::string& x) {
+  if (x.empty()) {
+    throw std::invalid_argument("Error: empty string isn't allowed");
+  }
+  try {
+    std::cout << x;
+  } catch (const std::exception& e) {
+    throw std::runtime_error("Error occurred during output: " + std::string(e.what()));
+  }
+  return x;
 }
+
 int echo(int i){
   std::cout << i; 
 }
