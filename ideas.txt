@@ -1,0 +1,10 @@
+########################################################################################################################################################################################################################################################################################################################################################################
+This is a file strictly for ideation only and documentation
+Syntax definitions: 
+echo ()-> equivalent of print(), printf(), std::cout ... -> Function overloaded 
+add()/multiply/minus/divide -> +/+=/++ -> Function overloaded
+Other syntaxes for now are yet to be implemented.
+Feel free to collaborate and implement new functions!
+Will primarily be compiled to C++ for the most part but other compiled languages are fine too (e.g. C, C++, C#, Zig, Rust, Go...)
+
+CREDITS: Damien Foo, etc...
