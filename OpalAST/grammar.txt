@@ -23,6 +23,7 @@ keyword : one of
   static
   void
   while
+  echo 
 
 symbol : one of
   ! % ^ ~ & * ( ) - + = [ ] { } | : ; < > , . / \ ' " $
