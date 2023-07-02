@@ -4,7 +4,7 @@
 #include <iostream>
 
 //buffer size which lexer will use to read block from a file
-#define BUFFER_SIZE 512
+#define BUFFER_SIZE 1024
 
 typedef std::string lexeme_t;
 typedef std::string record_t;

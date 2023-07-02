@@ -1,6 +1,8 @@
-#include<iostream>
-#include<vector>
-#include<string>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <unordered_map>
+
 enum class TokenType {
   // Literal Types
   Number,
@@ -16,59 +18,36 @@ enum class TokenType {
   CloseParen,
 };
 
-constexpr std::unordered_map<std::string, TokenType> KEYWORDS = {
+const std::unordered_map<std::string, TokenType> KEYWORDS = {
   { "let", TokenType::Let },
+};
+
+struct Token {
+  char value;
+  TokenType type;
 };
 
 std::vector<Token> tokenize(const std::string& source_code) {
   std::vector<Token> tokens;
+  std::string identifier;
+  int state = 0;
   for (const char c : source_code) {
-    switch (c) {
-      case '(':
-        tokens.push_back(Token{ c, TokenType::OpenParen });
-        break;
-      case ')':
-        tokens.push_back(Token{ c, TokenType::CloseParen });
-        break;
-      case '+':
-      case '-':
-      case '*':
-      case '/':
-        tokens.push_back(Token{ c, TokenType::BinaryOperator });
-        break;
-      case '=':
-        tokens.push_back(Token{ c, TokenType::Equals });
-        break;
-      case '0'...'9':
-        {
-          std::string number;
-          number += c;
-          while (i < source_code.size() && is_digit(source_code[i])) {
-            number += source_code[i++];
-          }
-
-          tokens.push_back(Token{ number, TokenType::Number });
-        }
-        break;
-      case 'a'...'z':
-      case 'A'...'Z':
-        {
-          std::string identifier;
-          identifier += c;
-          while (i < source_code.size() && is_alpha(source_code[i])) {
-            identifier += source_code[i++];
-          }
-
-          const auto reserved = KEYWORDS.find(identifier);
-          if (reserved != KEYWORDS.end()) {
-            tokens.push_back(Token{ identifier, reserved->second });
-          } else {
-            tokens.push_back(Token{ identifier, TokenType::Identifier });
-          }
-        }
-        break;
-      default:
-        if (is_skippable(c)) {
+    switch (state) {
+      case 0:
+        if (is_digit(c)) {
+          state = 1;
+        } else if (is_alpha(c)) {
+          identifier.push_back(c);
+          state = 2;
+        } else if (c == '(') {
+          tokens.push_back({ c, TokenType::OpenParen });
+        } else if (c == ')') {
+          tokens.push_back({ c, TokenType::CloseParen });
+        } else if (c == '+' || c == '-' || c == '*' || c == '/') {
+          tokens.push_back({ c, TokenType::BinaryOperator });
+        } else if (c == '=') {
+          tokens.push_back({ c, TokenType::Equals });
+        } else if (is_skippable(c)) {
           // Skip uneeded chars.
         } else {
           // Handle unreconized characters.
@@ -76,7 +55,38 @@ std::vector<Token> tokenize(const std::string& source_code) {
           std::cerr << "Unrecognized character found in source: " << c << std::endl;
           exit(1);
         }
+        break;
+      case 1:
+        if (is_digit(c)) {
+          identifier.push_back(c);
+        } else {
+          tokens.push_back({ identifier, TokenType::Number });
+          identifier.clear();
+          state = 0;
+        }
+        break;
+      case 2:
+        if (is_alpha(c) || is_digit(c)) {
+          identifier.push_back(c);
+        } else {
+          const auto reserved = KEYWORDS.find(identifier);
+          if (reserved != KEYWORDS.end()) {
+            tokens.push_back({ identifier, reserved->second });
+          } else {
+            tokens.push_back({ identifier, TokenType::Identifier });
+          }
+          identifier.clear();
+          state = 0;
+        }
+        break;
     }
+  }
+
+  if (state == 1 || state == 2) {
+    // Handle incomplete tokens.
+    // TODO: Implement better errors and error recovery.
+    std::cerr << "Incomplete token found in source." << std::endl;
+    exit(1);
   }
 
   return tokens;

@@ -112,7 +112,7 @@ float multiply(const std::vector<float>& operands){
   }
   return result;
 }
-long multiply(const std::vector<float>& operands){
+long multiply(const std::vector<long>& operands){
    long result = 0.0;
   for (long operand : operands){
     result *= operand;
