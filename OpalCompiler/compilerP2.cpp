@@ -28,6 +28,6 @@ void else(){
   
 }
 
-void fn(const char* function_name){
+void fn(){
   
 }
