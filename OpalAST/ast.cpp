@@ -63,8 +63,8 @@ int main() {
   program.children.push_back(std::move(identifier));
 
   auto binaryExpr = std::make_unique<BinaryExpr>();
-  binaryExpr->left = std::move(program.children[0]);
-  binaryExpr->right = std::move(program.children[1]);
+  binaryExpr->left == std::move(program.children[0]);
+  binaryExpr->right == std::move(program.children[1]);
   binaryExpr->operatorSymbol = "+";
   program.children.push_back(std::move(binaryExpr));
 
