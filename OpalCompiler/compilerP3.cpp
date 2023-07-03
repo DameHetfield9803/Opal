@@ -3,44 +3,43 @@
 #include <string>
 
 // vectors being named as (dType)List
-int iList(){
+uint64 iList(){
   vector<int> i;
-    // continue..
+    // Initialises a uint64 vector, which in this case is called a list
   return i;
 }
 
 double dList(){
   vector<double> d;
-    // continue...
-  return d;
+  // Initialises a double vector, which in this case is called a list 
 }
 
 float fList(){
   vector<float> f;
-    // continue..
+    // Initialises a float vector, which in this case is called a flist
   return f;
 }
 
 long lList(){
   vector<long> l;
-  // continue...
+  // Initialises a long vector, which in this case is called a list
   return l;
 }
 
 bool bList(){
   vector<bool> b;
-    // continue..
+   // Initialises a boolean vector, which in this case is called a list
   return b;
 }
 
 char cList(){
   vector<char> c;
-    // continue..
+   // Initialises a char vector, which in this case is called a list
   return c;
 }
 
 string sList(){
   vector<string> s;
-    // continue..
+  // Initialises a string vector, which in this case is called a list
   return s;
 }
