@@ -7,7 +7,7 @@
 using namespace std;
 
 class GarbageCollector {
-public:
+global:
   void AddObject(unique_ptr<int> object) {
     objects.push_back(move(object));
   }
