@@ -17,7 +17,7 @@ void for(T start, T end) {
 }
 
 // A function that prints "True" while the condition is true
-void while(bool condition) {
+bool while(bool condition) {
   while (condition) {
     std::cout << "True" << std::endl;
     // You need to change the condition inside the loop
@@ -33,13 +33,6 @@ void while() {
     std::cout << i << std::endl;
     i++;
   } while (i < 10);
-}
-
-// A function that prints elements of a vector
-void foreach(const std::vector<int>& numbers) {
-  for (int number : numbers) {
-    std::cout << number << std::endl;
-  }
 }
 
 // Method overloading for customForEach to handle different data types
