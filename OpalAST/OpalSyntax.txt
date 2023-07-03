@@ -1,0 +1,29 @@
+/* This is purely for syntatical purposes aka syntax */
+
+Key syntaxes:
+
+int -> uint64 (HUGE MAX AND MINS)
+float -> float (duh)
+long -> long
+bool -> bool 
+double -> double
+long double -> double but way bigger max and mins
+
+/*For returning and printing*/
+echo();
+// Will return all data types
+
+pf();
+/*Same as Java/C's printf(); */
+
+// Conditional operators
+for() 
+while()
+do()
+foreach()
+if()
+else()
+elif()
+// Ternary operator
+// Arrays
+TBC
