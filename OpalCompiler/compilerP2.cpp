@@ -61,7 +61,7 @@ void elif(bool condition) {
 
 // A function that prints "Else"
 void else() {
-  if (!customIf(false)) {
+  if (!if(false)) {
     std::cout << "Else" << std::endl;
   }
 }
@@ -80,33 +80,3 @@ void fn(const T& n) {
     std::cout << i << std::endl;
   }
 }
-
-int main() {
-  customForLoop(0, 5);
-  std::cout << "--------" << std::endl;
-
-  customForLoop('a', 'e');
-  std::cout << "--------" << std::endl;
-
-  customWhileLoop(true);
-  std::cout << "--------" << std::endl;
-
-  customDoWhileLoop();
-  std::cout << "--------" << std::endl;
-
-  std::vector<int> numbers = {1, 2, 3, 4, 5};
-  customForEach(numbers);
-  std::cout << "--------" << std::endl;
-
-  std::vector<char> chars = {'a', 'b', 'c', 'd', 'e'};
-  customForEach(chars);
-  std::cout << "--------" << std::endl;
-
-  customIf(true);
-  std::cout << "--------" << std::endl;
-
-  customElseIf(false);
-  std::cout << "--------" << std::endl;
-
-  customElse();
-  std::cout << "--------" << std::endl
