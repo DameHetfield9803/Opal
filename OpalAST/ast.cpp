@@ -45,8 +45,19 @@ struct Identifier : Expr {
 };
 
 // Represents a numeric constant inside the source code.
-struct NumericLiteral : Expr {
-  NodeType kind = NodeType::NumericLiteral;
+// struct NumericLiteral : Expr {
+//   NodeType kind = NodeType::NumericLiteral;
+//   double value;
+// };
+
+/*
+unnecessary inheritance from Expr is removed, 
+and the NodeType field is eliminated. 
+Simplified struct only includes the necessary value field to store the numeric literal value, 
+resulting in reduced memory usage and potentially improved performance.
+- Kevin
+*/
+struct NumericLiteral {
   double value;
 };
 
