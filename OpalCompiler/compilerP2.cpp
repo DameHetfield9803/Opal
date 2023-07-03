@@ -53,7 +53,7 @@ void if(bool condition) {
 }
 
 // A function that prints "True" if the condition is true, otherwise does nothing
-void else if(bool condition) {
+void elif(bool condition) {
   if (condition) {
     std::cout << "True" << std::endl;
   }
