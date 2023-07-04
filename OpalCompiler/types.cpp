@@ -1,3 +1,6 @@
+#ifndef types_cpp
+#define types.cpp
+
 #include <iostream>
 #include <string>
 
