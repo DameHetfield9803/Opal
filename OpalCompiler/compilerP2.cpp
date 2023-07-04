@@ -2,7 +2,7 @@
 #include <vector>
 
 // A function that prints numbers from 'start' to 'end'
-void for(int start, int end) {
+void for(int start, int end, int increment) {
   for (int i = start; i < end; ++i) {
     std::cout << i << std::endl;
   }
@@ -17,22 +17,25 @@ void for(T start, T end) {
 }
 
 // A function that prints "True" while the condition is true
-bool while(bool condition) {
+template <typename T>
+bool while(T condition) {
   while (condition) {
     std::cout << "True" << std::endl;
     // You need to change the condition inside the loop
     // to eventually make it false; otherwise, it will result in an infinite loop.
-    condition = false;
+    if(condition == false){
+      break;
+    }
   }
 }
 
 // A function that prints numbers from 0 to 9
-void while() {
-  int i = 0;
+template <typename T>
+void while(T condition) {
+  T i != condition;
   do {
-    std::cout << i << std::endl;
-    i++;
-  } while (i < 10);
+    std::cout << T << std::endl;
+  } while (i!=condition);
 }
 
 // Method overloading for customForEach to handle different data types
