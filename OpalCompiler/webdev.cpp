@@ -7,7 +7,7 @@ int main() {
     crow::SimpleApp app;
 
     // Set the number of threads as desired
-    constexpr unsigned int numThreads = 4;
+    constexpr unsigned int numThreads = 6;
 
     // Define the routes
     // Route for the root path "/"
