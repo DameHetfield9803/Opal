@@ -32,7 +32,9 @@ int main() {
     /*
     E.g. only Admin role can access
 
-    ROUTE_AUTH("admin", "/admin/report");
+    ROUTE_AUTH("admin", "/admin/report"); // Single role
+    
+    ROUTE_AUTH(["admin", "superAdmin"], "/admin/report") // Multiple role
     */
     void ROUTE_AUTH(const std::string& str, const std::string& str) {
         // Logic goes here
