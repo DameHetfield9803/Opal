@@ -15,7 +15,7 @@ int null(){
 
 // Added exception handling - Kevin
 // Empty string isn't allowed
-std::string echo(const std::string& x) {
+/*std::string echo(const std::string& x) {
   if (x.empty()) {
     throw std::invalid_argument("Error: empty string isn't allowed");
   }
@@ -59,6 +59,11 @@ bool echo(bool d){
     std::cout << false;
   }
   return d;
+}*/
+template <typename T>
+T echo(T x) {
+    std::cout << x << " \n";
+    return x;
 }
   // Math operations 
   // Addition
@@ -231,4 +236,6 @@ long minus(const std::vector<long>& operands){
     return result;
 }
 
-// For and While loops 
+int main(){
+  // It's literally in here just to test the functions.
+}
