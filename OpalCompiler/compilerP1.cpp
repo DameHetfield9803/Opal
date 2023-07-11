@@ -5,237 +5,65 @@
 // vectors are basically what arrayList in Java but better 
 // stdexcept is similar to Java's exception handler
 // NULL values
-int null(){
-  return NULL;
-}
-// basically print() in Python
-// string echo(string x){
-//   std::cout << x; 
-// }
-
-// Added exception handling - Kevin
-// Empty string isn't allowed
-/*std::string echo(const std::string& x) {
-  if (x.empty()) {
-    throw std::invalid_argument("Error: empty string isn't allowed");
-  }
-  try {
-    std::cout << x;
-  } catch (const std::exception& e) {
-    throw std::runtime_error("Error occurred during output: " + std::string(e.what()));
-  }
-  return x;
+static int null() {
+    return NULL;
 }
 
-int echo(int i){
-  std::cout << i; 
-  return i;
-}
-int echo(char j){
-  std::cout << j;
-  return j;
-}
-
-double echo(double a){
-  std::cout << a;
-  return a;
-}
-
-float echo(float b){
-  std::cout << b;
-  return b;
-}
-
-long echo(long c){
-  std::cout << c;
-  return c;
-}
-
-bool echo(bool d){
-  if(d==true){
-    std::cout << true;
-  }
-  else{
-    std::cout << false;
-  }
-  return d;
-}*/
 template <typename T>
 T echo(T x) {
     std::cout << x << " \n";
     return x;
 }
-  // Math operations 
-  // Addition
-double add(const std::vector<double>& operands) {
-  double result = 0.0;
-  for (double operand : operands) {
-    result += operand;
-  }
-  return result;
+
+template <typename T>
+T add(const std::vector<T>& operands) {
+    T result = T();
+    for (T operand : operands) {
+        result += operand;
+    }
+    return result;
 }
-int add(const std::vector<int>& operands){
-   int result = 0;
-  for (int operand : operands){
-    result += operand;
-  }
-  return result;
-}
-float add(const std::vector<float>& operands){
-   float result = 0.0;
-  for (float operand : operands){
-    result += operand;
-  }
-  return result;
-}
-long add(const std::vector<long>& operands){
-   long result = 0.0;
-  for (long operand : operands){
-    result += operand;
-  }
-  return result;
-}
-// Multiplication
-double multiply(const std::vector<double>& operands){
-   double result = 0.0;
-    for (double operand : operands) {
+
+
+template <typename T>
+T multiply(const std::vector<T>& operands) {
+    T result = 1;
+    for (T operand : operands) {
         result *= operand;
     }
     return result;
 }
-int multiply(const std::vector<int>& operands){
-   int result = 0;
-  for (int operand : operands){
-    result *= operand;
-  }
-  return result;
-}
-float multiply(const std::vector<float>& operands){
-   float result = 0.0;
-  for (float operand : operands){
-    result *= operand;
-  }
-  return result;
-}
-long multiply(const std::vector<long>& operands){
-   long result = 0.0;
-  for (long operand : operands){
-    result *= operand;
-  }
-  return result;
-}
 
-// Division
-double divide(const std::vector<double>& operands) {
+
+template <typename T>
+T divide(const std::vector<T>& operands) {
     if (operands.empty()) {
         throw std::runtime_error("Division operator requires at least one operand.");
     }
-    double result = operands[0];
+    T result = operands[0];
     for (size_t i = 1; i < operands.size(); ++i) {
         if (operands[i] == 0) {
-            throw std::runtime_error("Division by zero error.");
+            throw std::runtime_error("You cannot divide by 0! ");
         }
         result /= operands[i];
     }
     return result;
 }
 
-int divide(const std::vector<int>& operands) {
+template <typename T>
+T minus(const std::vector<T>& operands) {
     if (operands.empty()) {
-        throw std::runtime_error("Division operator requires at least one operand.");
+        return T(); // Handle the case where there are no operands.
     }
-    int result = operands[0];
-    for (size_t i = 1; i < operands.size(); ++i) {
-        if (operands[i] == 0) {
-            throw std::runtime_error("Division by zero error.");
-        }
-        result /= operands[i];
-    }
-    return result;
-}
-
-float divide(const std::vector<float>& operands) {
-    if (operands.empty()) {
-        throw std::runtime_error("Division operator requires at least one operand.");
-    }
-    float result = operands[0];
-    for (size_t i = 1; i < operands.size(); ++i) {
-        if (operands[i] == 0) {
-            throw std::runtime_error("Division by zero error.");
-        }
-        result /= operands[i];
-    }
-    return result;
-}
-
-long divide(const std::vector<long>& operands) {
-    if (operands.empty()) {
-        throw std::runtime_error("Division operator requires at least one operand.");
-    }
-    long result = operands[0];
-    for (size_t i = 1; i < operands.size(); ++i) {
-        if (operands[i] == 0) {
-            throw std::runtime_error("Division by zero error.");
-        }
-        result /= operands[i];
-    }
-    return result;
-}
-
-// Subtraction
-int minus(const std::vector<int>& operands){
-  if (operands.empty()) {
-        // Handle the case where there are no operands.
-        // You can choose to throw an exception or return a default value.
-        // Here, we'll return 0 as the default value.
-        return 0;
-    }
-    int result = operands[0];
-    for (size_t i = 1; i < operands.size(); ++i) {
-        result -= operands[i];
-    }
-    return result;
-}
-double minus(const std::vector<double>& operands){
-  if (operands.empty()) {
-        // Handle the case where there are no operands.
-        // You can choose to throw an exception or return a default value.
-        // Here, we'll return 0 as the default value.
-        return 0;
-    }
-    double result = operands[0];
-    for (size_t i = 1; i < operands.size(); ++i) {
-        result -= operands[i];
-    }
-    return result;
-}
-float minus(const std::vector<float>& operands){
-  if (operands.empty()) {
-        // Handle the case where there are no operands.
-        // You can choose to throw an exception or return a default value.
-        // Here, we'll return 0 as the default value.
-        return 0;
-    }
-    float result = operands[0];
-    for (size_t i = 1; i < operands.size(); ++i) {
-        result -= operands[i];
-    }
-    return result;
-}
-long minus(const std::vector<long>& operands){
-  if (operands.empty()) {
-        // Handle the case where there are no operands.
-        // You can choose to throw an exception or return a default value.
-        // Here, we'll return 0 as the default value.
-        return 0;
-    }
-    long result = operands[0];
+    T result = operands[0];
     for (size_t i = 1; i < operands.size(); ++i) {
         result -= operands[i];
     }
     return result;
 }
 
-int main(){
-  // It's literally in here just to test the functions.
+int main() {
+  // main is for testing functions and etc...
+    echo(10);
+    return 0;
 }
