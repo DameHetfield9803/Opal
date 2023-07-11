@@ -2,18 +2,25 @@
 #include <string>
 #include <vector>
 #include <stdexcept>
+#include <thread>
+
 // vectors are basically what arrayList in Java but better 
 // stdexcept is similar to Java's exception handler
 // NULL values
+
 static int null() {
     return NULL;
 }
 
+// Will get to implementing soon
+// auto var;
+
 template <typename T>
-T echo(T x) {
+inline constexpr T echo(T x) {
     std::cout << x << " \n";
     return x;
 }
+
 
 template <typename T>
 T add(const std::vector<T>& operands) {
@@ -63,7 +70,6 @@ T minus(const std::vector<T>& operands) {
 }
 
 int main() {
-  // main is for testing functions and etc...
-    echo(10);
+    echo("Hello World!");
     return 0;
 }
